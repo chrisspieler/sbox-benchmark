@@ -1,0 +1,220 @@
+{
+  "__guid": "6d180319-410e-4a23-b3c1-3efc8c93f42c",
+  "GameObjects": [
+    {
+      "__guid": "b252df27-9a57-4ce0-9a03-9cf739391b7b",
+      "Name": "Main Camera",
+      "Position": "-300,0,100",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Benchmark.Freecam",
+          "__guid": "6f9ac21e-c90f-470c-90b2-2c0213592d4d",
+          "ClampPitch": true,
+          "HighSpeedAction": "run",
+          "HighSpeedFactor": 2.5,
+          "LowSpeedAction": "duck",
+          "LowSpeedFactor": 0.3,
+          "OnComponentStart": {
+            "__version": 6,
+            "__guid": "26831368-1e45-4ae7-b1e9-e474c183b9e9",
+            "UserData": {
+              "Title": "On Component Start",
+              "ReferencedComponentTypes": []
+            },
+            "Variables": [],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input",
+                "UserData": {
+                  "Position": "16,-144"
+                }
+              },
+              {
+                "Id": 2,
+                "Type": "scene.ref",
+                "Properties": {
+                  "component": {
+                    "_type": "component",
+                    "component_id": "9d074277-3a53-4ea0-b137-7056cf89c870",
+                    "go": "5b4c4147-70d7-4b59-a114-b0431568f05a",
+                    "component_type": "GridSpawner"
+                  }
+                },
+                "UserData": {
+                  "Position": "-256,-96"
+                }
+              },
+              {
+                "Id": 3,
+                "Type": "property",
+                "Properties": {
+                  "_name": "Center",
+                  "_type": "package.local.benchmark/Benchmark.GridSpawner"
+                },
+                "UserData": {
+                  "Position": "-16,-96"
+                }
+              },
+              {
+                "Id": 4,
+                "Type": "property",
+                "Properties": {
+                  "_name": "Transform",
+                  "_type": "Sandbox.Game/Sandbox.GameObject"
+                },
+                "UserData": {
+                  "Position": "0,48"
+                }
+              },
+              {
+                "Id": 13,
+                "Type": "property",
+                "Properties": {
+                  "_name": "Position",
+                  "_type": "Sandbox.Game/Sandbox.GameTransform"
+                },
+                "UserData": {
+                  "Position": "240,-16"
+                }
+              }
+            ],
+            "Links": [
+              {
+                "SrcId": 2,
+                "SrcName": "_result",
+                "DstId": 3,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_target",
+                "DstId": 4,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_signal",
+                "DstId": 13,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 4,
+                "SrcName": "_result",
+                "DstId": 13,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 3,
+                "SrcName": "_result",
+                "DstId": 13,
+                "DstName": "_value"
+              }
+            ],
+            "Defaults": {
+              "$2.component": {
+                "_type": "component",
+                "component_id": "9d074277-3a53-4ea0-b137-7056cf89c870",
+                "go": "5b4c4147-70d7-4b59-a114-b0431568f05a",
+                "component_type": "GridSpawner"
+              }
+            }
+          },
+          "Speed": 300
+        },
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "1e04b891-0b02-4b0d-b303-1ff0fe8d6505",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 100000,
+          "ZNear": 0.1
+        }
+      ]
+    },
+    {
+      "__guid": "d0d30279-295b-45c2-ac10-8b2c0619ce32",
+      "Name": "Directional Light",
+      "Position": "0,0,200",
+      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "db2437fe-715c-4226-b400-708d81c83e48",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": false,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5b4c4147-70d7-4b59-a114-b0431568f05a",
+      "Name": "Grid Spawner",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Benchmark.GridSpawner",
+          "__guid": "9d074277-3a53-4ea0-b137-7056cf89c870",
+          "Center": "3200,3200,3200",
+          "SpawnOnStart": true,
+          "XCount": 100,
+          "XSpacing": 64,
+          "YCount": 100,
+          "YSpacing": 64,
+          "ZCount": 100,
+          "ZSpacing": 64
+        },
+        {
+          "__type": "Benchmark.CellSceneObjectSpawner",
+          "__guid": "b62af728-c670-47af-b5b0-1b03f697aae6",
+          "Model": "models/dev/box.vmdl",
+          "Scale": "0.15,0.15,0.15"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "Cube Grid",
+  "Description": "",
+  "LastSaved": "2024-04-28T00:17:01.0098771-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
